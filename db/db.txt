@@ -1,1 +1,1 @@
-[]
+[{"id":1,"name":"Yossi","grade":"A"},{"id":2,"name":"meni","grade":"B"},{"id":4,"name":"mimi","grade":"C"}]

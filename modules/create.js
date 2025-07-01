@@ -1,23 +1,21 @@
-
-import fs from "fs";
+import { readFile, writeFile } from "./fileHelpers.js";
 
 const dbPath = "db/db.txt";
 
-function createStudent(rl) {
+function createStudent(rl)
+ {
   rl.question("Enter student JSON: ", (input) => {
     const newStudent = JSON.parse(input);
 
-    fs.readFile(dbPath, "utf8", (err, data) => {
-      const students = JSON.parse(data);
+    readFile(dbPath).then((students) => {
       students.push(newStudent);
 
-      fs.writeFile(dbPath, JSON.stringify(students), () => {
+      writeFile(dbPath, students).then(() => {
         console.log("Student added successfully.");
         rl.close();
-      });
-    });
   });
+   });
+});
 }
-
 
 export default createStudent;
